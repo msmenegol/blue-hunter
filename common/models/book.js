@@ -1,15 +1,13 @@
 'use strict';
 
-function searchForAny(model, field, text){
-  let pattern = new RegExp('.*'+text+'.*', "i");
-  model.find({where: {field: {like: pattern} } }, function(err, result){
-    return result;
-  });
-}
-
 module.exports = function(Book) {
   Book.byTitle = function(title, cb){
-    cd(null,searchForAny(Book, title, title));
+    let pattern = new RegExp('.*'+title+'.*', "i");
+
+    Book.find({where: {title: {like: pattern} } }, function(err, books){
+      let response = books;
+      cb(null,response);
+    });
   }
 
   Book.remoteMethod(
@@ -31,7 +29,12 @@ module.exports = function(Book) {
   );
 
   Book.byAuthor = function(author, cb){
-    cd(null,searchForAny(Book, author, author));
+    let pattern = new RegExp('.*'+author+'.*', "i");
+
+    Book.find({where: {author: {like: pattern} } }, function(err, books){
+      let response = books;
+      cb(null,response);
+    });
   }
 
   Book.remoteMethod(
