@@ -4,7 +4,7 @@ let expect = require('chai').expect;
 let supertest = require('supertest');
 let api = supertest('http://localhost:3000');
 
-describe('User', function(){
+describe('Book', function(){
   it('should get all books with \'m\' in the name', function(done){
     api.get('/book/by-title/m')
       .expect('Content-Type', /json/)
