@@ -28,13 +28,12 @@ describe('User', function(){
         if (err) {
           return done(err);
         }
-        let users = res.body;
+        let users = res.body.users;
 
         //i should be getting more than one for this test
         expect(Array.isArray(users)).to.be.true;
-        for(i=0;i<users.length;i++){
-          expect(users[i].fullName.toLowerCase().includes("b")).to.be.true;
-        }
+        expect(users.some(user => !user.fullName.toLowerCase().includes("b"))).to.be.false;
+        return done();
       });
   });
 
