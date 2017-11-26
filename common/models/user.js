@@ -23,7 +23,7 @@ module.exports = function(User) {
         required: true
       },
       returns: {
-        arg: 'user',
+        arg: 'users',
         type: 'array'
       }
     }
