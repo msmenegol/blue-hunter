@@ -32,20 +32,13 @@ describe('User', function(){
 
         //i should be getting more than one for this test
         expect(Array.isArray(users)).to.be.true;
-        expect(
-          for(i=0;i<users.length;i++){
-            //if any name does not contain "b"
-            if(!users[i].fullName.toLowerCase().includes("b")){
-              return false;
-            }
-          }
-          //if all names contained "b"
-          return true;
-        ).to.be.true;
+        for(i=0;i<users.length;i++){
+          expect(users[i].fullName.toLowerCase().includes("b")).to.be.true;
+        }
       });
   });
 
-  it('should get all users with \'Alic\' in the name', function(done){
+  it('should get all users with \'alic\' in the name', function(done){
     api.get('/user/by-name/alic')
       .expect('Content-Type', /json/)
       .expect(200)
@@ -56,14 +49,9 @@ describe('User', function(){
         let users = res.body;
 
         expect(Array.isArray(users)).to.be.true;
-        expect(
-          for(i=0;i<users.length;i++){
-            if(!users[i].fullName.toLowerCase().includes("alic")){
-              return false;
-            }
-          }
-          return true;
-        ).to.be.true;
+        for(i=0;i<users.length;i++){
+          expect(users[i].fullName.toLowerCase().includes("alic")).to.be.true;
+        }
       });
   });
 });
