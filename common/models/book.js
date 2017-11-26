@@ -1,5 +1,12 @@
 'use strict';
 
+function searchForAny(model, field, text){
+  let pattern = new RegExp('.*'+text+'.*', "i");
+  model.find({where: {field: {like: pattern} } }, function(err, result){
+    return result;
+  });
+}
+
 module.exports = function(Book) {
   Book.byTitle = function(title, cb){
     let pattern = new RegExp('.*'+title+'.*', "i");
