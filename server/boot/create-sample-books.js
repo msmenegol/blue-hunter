@@ -4,7 +4,7 @@ if(process.env.NODE_ENV == "dev"){
     app.dataSources.db.automigrate('book', function(err) {
       if (err) throw err;
 
-      app.models.User.create([
+      app.models.Book.create([
         {
           title: '1984',
           author: "@gOrwell",
