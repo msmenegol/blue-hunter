@@ -3,8 +3,10 @@
 module.exports = function(User) {
   User.byName = function(cb){
     let response;
+
+    cb(null,response);
   }
-  cb(null,response);
+
 
   User.remoteMethod(
     'byName', {
@@ -15,9 +17,9 @@ module.exports = function(User) {
       accepts: {
         arg: 'name',
         type: 'string',
-        http:{source: 'query'
-      }
-      returns:{
+        http:{source: 'query'}
+      },
+      returns: {
         arg: 'users',
         type: 'array'
       }
