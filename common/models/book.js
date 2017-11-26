@@ -31,7 +31,7 @@ module.exports = function(Book) {
   );
 
   Book.byAuthor = function(author, cb){
-    cd(null,searchForAny(Book, author, "i"));
+    cd(null,searchForAny(Book, author, author));
   }
 
   Book.remoteMethod(
