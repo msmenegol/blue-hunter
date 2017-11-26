@@ -9,12 +9,7 @@ function searchForAny(model, field, text){
 
 module.exports = function(Book) {
   Book.byTitle = function(title, cb){
-    let pattern = new RegExp('.*'+title+'.*', "i");
-
-    Book.find({where: {title: {like: pattern} } }, function(err, books){
-      let response = books;
-      cb(null,response);
-    });
+    cd(null,searchForAny(Book, title, "i"));
   }
 
   Book.remoteMethod(
