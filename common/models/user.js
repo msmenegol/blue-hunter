@@ -1,26 +1,29 @@
 'use strict';
 
 module.exports = function(User) {
-  User.byName = function(cb){
-    let response;
+  User.byName = function(name, cb){
+    let pattern = new RegExp('.*'+name+'.*', "i");
 
-    cb(null,response);
+    User.find({where: {fullName: {like: pattern} } }, function(err, users){
+      let response = users;
+      cb(null,response);
+    });
   }
 
 
   User.remoteMethod(
     'byName', {
       http: {
-        path: '/by-name',
+        path: '/by-name/:name',
         verb: 'get'
       },
       accepts: {
         arg: 'name',
         type: 'string',
-        http:{source: 'query'}
+        required: true
       },
       returns: {
-        arg: 'users',
+        arg: 'user',
         type: 'array'
       }
     }
