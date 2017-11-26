@@ -16,5 +16,9 @@
   "user": {
     "dataSource": "db",
     "public": true
+  },
+  "book": {
+    "dataSource": "db",
+    "public": true
   }
 }
