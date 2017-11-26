@@ -9,7 +9,7 @@ function searchForAny(model, field, text){
 
 module.exports = function(Book) {
   Book.byTitle = function(title, cb){
-    cd(null,searchForAny(Book, title, "i"));
+    cd(null,searchForAny(Book, title, title));
   }
 
   Book.remoteMethod(
@@ -31,12 +31,7 @@ module.exports = function(Book) {
   );
 
   Book.byAuthor = function(author, cb){
-    let pattern = new RegExp('.*'+author+'.*', "i");
-
-    Book.find({where: {author: {like: pattern} } }, function(err, books){
-      let response = books;
-      cb(null,response);
-    });
+    cd(null,searchForAny(Book, author, "i"));
   }
 
   Book.remoteMethod(
