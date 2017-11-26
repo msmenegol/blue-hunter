@@ -45,12 +45,11 @@ describe('User', function(){
         if (err) {
           return done(err);
         }
-        let users = res.body;
+        let users = res.body.users;
 
         expect(Array.isArray(users)).to.be.true;
-        for(i=0;i<users.length;i++){
-          expect(users[i].fullName.toLowerCase().includes("alic")).to.be.true;
-        }
+        expect(users.some(user => !user.fullName.toLowerCase().includes("alic"))).to.be.false;
+        return done();
       });
   });
 });
