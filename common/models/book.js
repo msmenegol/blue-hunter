@@ -10,7 +10,6 @@ module.exports = function(Book) {
     });
   }
 
-
   Book.remoteMethod(
     'byTitle', {
       http: {
@@ -19,6 +18,29 @@ module.exports = function(Book) {
       },
       accepts: {
         arg: 'title',
+        type: 'string',
+        required: true
+      },
+      returns: {
+        arg: 'books',
+        type: 'array'
+      }
+    }
+  );
+
+  Book.byAuthor = function(author, cb){
+    let response;
+    cb(null, response);
+  }
+
+  Book.remoteMethod(
+    'byAuthor', {
+      http: {
+        path: '/by-author/:author',
+        verb: 'get'
+      },
+      accepts: {
+        arg: 'author',
         type: 'string',
         required: true
       },
