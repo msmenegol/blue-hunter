@@ -6,7 +6,11 @@ To install loopback:
 
 `npm install -g loopback-cli`
 
-Pre-requisites: Node.js and docker + docker-compose for using MySQL
+Pre-requisites:
+
+npm and Node.js (https://docs.npmjs.com/getting-started/installing-node)
+
+docker + docker-compose for using MySQL (https://docs.docker.com/compose/install/)
 
 ## Packages added for testing:
 - mocha
