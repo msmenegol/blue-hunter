@@ -17,6 +17,7 @@ describe('User', function(){
 
         //i should be getting more than one for this test
         expect(Array.isArray(users)).to.be.true;
+        expect(users.length>0).to.be.true;
         expect(users.some(user => !user.fullName.toLowerCase().includes("b"))).to.be.false;
         return done();
       });
@@ -33,6 +34,7 @@ describe('User', function(){
         let users = res.body.users;
 
         expect(Array.isArray(users)).to.be.true;
+        expect(users.length>0).to.be.true;
         expect(users.some(user => !user.fullName.toLowerCase().includes("alic"))).to.be.false;
         return done();
       });
