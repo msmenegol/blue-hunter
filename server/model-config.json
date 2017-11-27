@@ -13,12 +13,12 @@
       "./mixins"
     ]
   },
-  "user": {
-    "dataSource": "db",
+  "User": {
+    "dataSource": "mysql",
     "public": true
   },
-  "book": {
-    "dataSource": "db",
+  "Book": {
+    "dataSource": "mysql",
     "public": true
   }
 }
