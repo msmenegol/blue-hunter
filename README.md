@@ -32,3 +32,8 @@ Pre-requisites: Node.js and docker + docker-compose for using MySQL
 ### To run on production mode (no explorer):
 
 `NODE_ENV=prod node .`
+
+### To run the tests:
+`node_modules/mocha/bin/mocha test/YOURTEST.js`
+For example, to test the byAuthor end-point:
+`node_modules/mocha/bin/mocha test/book.byAuthor.test.js`
