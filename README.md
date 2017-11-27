@@ -42,3 +42,30 @@ docker + docker-compose for using MySQL (https://docs.docker.com/compose/install
 
 For example, to test the byAuthor end-point:
 `node_modules/mocha/bin/mocha test/book.byAuthor.test.js`
+
+## How to deploy:
+Deploy was made on the IBM Cloud service, following the information in these tutorials:
+
+- https://qiita.com/joohounsong/items/476bf95016a2266d0da8
+- https://www.ibm.com/blogs/bluemix/2015/09/strongloop-to-mysql-app/
+- https://www.ibm.com/blogs/bluemix/2015/09/strongloop-to-mysql-app/
+- https://loopback.io/doc/en/lb3/Preparing-for-deployment.html
+
+
+- First, create a Bluemix/IBMCloud account;
+- Create an node.js app in the Cloud Foundry;
+- After the app is set up, add a database to it;
+- In our case, it's a ClearDB MySQL Database;
+- Connect it to your application on IBM Cloud;
+- Then, configure the datasource with the credentials of the newly created database. Create a datasources.production.json for that;
+- In manifest.yml, put the desired name of your application;
+- Install Cloud Foundry CLI (https://github.com/cloudfoundry/cli);
+- Connect to Bluemix and login:
+
+`cf api https://api.ng.bluemix.net`
+
+`cf login`
+
+- Push your application to the cloud:
+
+`cf push`
