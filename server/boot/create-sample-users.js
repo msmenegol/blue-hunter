@@ -1,7 +1,7 @@
 if(process.env.NODE_ENV == "dev"){
 
   module.exports = function(app) {
-    app.dataSources.db.automigrate('user', function(err) {
+    app.dataSources.db.automigrate('User', function(err) {
       if (err) throw err;
 
       app.models.User.create([

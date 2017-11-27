@@ -1,5 +1,5 @@
 {
-  "name": "book",
+  "name": "Book",
   "plural": "book",
   "base": "PersistedModel",
   "idInjection": true,
