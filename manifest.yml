@@ -1,0 +1,4 @@
+applications:
+- name: blue-hunter
+  random-route: true
+  memory: 256M
