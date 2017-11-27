@@ -4,7 +4,7 @@ module.exports = function(User) {
   User.byName = function(name, cb){
     let pattern = new RegExp('.*'+name+'.*', "i");
 
-    User.find({where: {fullName: {like: pattern} } }, function(err, users){
+    User.find({where: {fullName: {regexp: pattern} } }, function(err, users){
       let response = users;
       cb(null,response);
     });
