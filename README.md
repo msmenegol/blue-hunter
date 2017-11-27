@@ -25,6 +25,8 @@ docker + docker-compose for using MySQL (https://docs.docker.com/compose/install
 
 `NODE_ENV=dev node .`
 
+Running locally, the end-points' documentation can be accessed via localhost:3000/explorer.
+
 ### To run with MySQL database:
 
 `docker-compose up`
