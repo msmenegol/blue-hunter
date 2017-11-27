@@ -4,12 +4,11 @@ module.exports = function(Book) {
   Book.byTitle = function(title, cb){
     let pattern = new RegExp('.*'+title+'.*', "i");
 
-    Book.find({where: {title: {like: pattern} } }, function(err, books){
+    Book.find({where: {title: {regexp: pattern} } }, function(err, books){
       let response = books;
       cb(null,response);
     });
   }
-
 
   Book.remoteMethod(
     'byTitle', {
@@ -19,6 +18,33 @@ module.exports = function(Book) {
       },
       accepts: {
         arg: 'title',
+        type: 'string',
+        required: true
+      },
+      returns: {
+        arg: 'books',
+        type: 'array'
+      }
+    }
+  );
+
+  Book.byAuthor = function(author, cb){
+    let pattern = new RegExp('.*'+author+'.*', "i");
+
+    Book.find({where: {author: {regexp: pattern} } }, function(err, books){
+      let response = books;
+      cb(null,response);
+    });
+  }
+
+  Book.remoteMethod(
+    'byAuthor', {
+      http: {
+        path: '/by-author/:author',
+        verb: 'get'
+      },
+      accepts: {
+        arg: 'author',
         type: 'string',
         required: true
       },

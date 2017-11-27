@@ -14,11 +14,11 @@
     ]
   },
   "User": {
-    "dataSource": "mysql",
+    "dataSource": "db",
     "public": true
   },
   "Book": {
-    "dataSource": "mysql",
+    "dataSource": "db",
     "public": true
   }
 }
