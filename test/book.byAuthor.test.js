@@ -17,6 +17,7 @@ describe('Book - by Author', function(){
 
         //i should be getting more than one for this test
         expect(Array.isArray(books)).to.be.true;
+        expect(books.length>0);
         expect(books.some(book => !book.author.toLowerCase().includes("i"))).to.be.false;
         return done();
       });
@@ -34,6 +35,7 @@ describe('Book - by Author', function(){
 
         //i should be getting more than one for this test
         expect(Array.isArray(books)).to.be.true;
+        expect(books.length>0);
         expect(books.some(book => !book.author.toLowerCase().includes("mel"))).to.be.false;
         return done();
       });
