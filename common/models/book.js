@@ -31,7 +31,7 @@ module.exports = function(Book) {
   Book.byAuthor = function(author, cb){
     let pattern = new RegExp('.*'+author+'.*', "i");
 
-    Book.find({where: {author: {like: pattern} } }, function(err, books){
+    Book.find({where: {author: {regexp: pattern} } }, function(err, books){
       let response = books;
       cb(null,response);
     });
