@@ -1,7 +1,7 @@
 if(process.env.NODE_ENV == "dev"){
 
   module.exports = function(app) {
-    app.dataSources.db.automigrate('book', function(err) {
+    app.dataSources.db.automigrate('Book', function(err) {
       if (err) throw err;
 
       app.models.Book.create([
