@@ -14,11 +14,11 @@
     ]
   },
   "user": {
-    "dataSource": "postgres_db",
+    "dataSource": "db",
     "public": true
   },
   "book": {
-    "dataSource": "postgres_db",
+    "dataSource": "db",
     "public": true
   }
 }
