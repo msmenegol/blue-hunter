@@ -1,12 +1,15 @@
 version: '3.0'
 services:
   db:
-    image: postgres:latest
+    image: mysql:latest
     ports:
       - "5432:5432"
     volumes:
-      - "./docker/db/pgdata:/var/lib/postgresql/data"
+      - './docker/db:/var/lib/mysql:rw'
+    ports:
+      - "3306:3306"
     environment:
-      POSTGRES_DB: "postgres_db"
-      POSTGRES_PASSWORD: "postgres"
-      POSTGRES_USER: "admin"
+      MYSQL_DATABASE: mysql
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: pw
+      MYSQL_ROOT_PASSWORD: pw
