@@ -49,8 +49,8 @@ module.exports = function(Book) {
         required: true
       },
       returns: {
-        arg: 'books',
-        type: 'array'
+        type: 'array',
+        root: true
       }
     }
   );
