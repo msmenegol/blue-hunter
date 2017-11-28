@@ -13,7 +13,7 @@ describe('User', function(){
         if (err) {
           return done(err);
         }
-        let users = res.body.users;
+        let users = res.body;
 
         //i should be getting more than one for this test
         expect(Array.isArray(users)).to.be.true;
@@ -31,7 +31,7 @@ describe('User', function(){
         if (err) {
           return done(err);
         }
-        let users = res.body.users;
+        let users = res.body;
 
         expect(Array.isArray(users)).to.be.true;
         expect(users.length>0).to.be.true;
