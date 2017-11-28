@@ -23,8 +23,8 @@ module.exports = function(User) {
         required: true
       },
       returns: {
-        arg: 'users',
-        type: 'array'
+        type: 'array',
+        root: true
       }
     }
   );
