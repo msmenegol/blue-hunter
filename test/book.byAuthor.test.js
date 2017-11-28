@@ -13,7 +13,7 @@ describe('Book - by Author', function(){
         if (err) {
           return done(err);
         }
-        let books = res.body.books;
+        let books = res.body;
 
         //i should be getting more than one for this test
         expect(Array.isArray(books)).to.be.true;
@@ -31,7 +31,7 @@ describe('Book - by Author', function(){
         if (err) {
           return done(err);
         }
-        let books = res.body.books;
+        let books = res.body;
 
         //i should be getting more than one for this test
         expect(Array.isArray(books)).to.be.true;
